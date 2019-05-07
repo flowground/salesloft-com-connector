@@ -1,0 +1,39 @@
+{
+    "type": "object",
+    "properties": {
+        "ids": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "type": "integer"
+            }
+        },
+        "updated_at": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "sort_by": {
+            "required": false,
+            "type": "string"
+        },
+        "sort_direction": {
+            "required": false,
+            "type": "string"
+        },
+        "per_page": {
+            "required": false,
+            "type": "integer"
+        },
+        "page": {
+            "required": false,
+            "type": "integer"
+        },
+        "include_paging_counts": {
+            "required": false,
+            "type": "boolean"
+        }
+    }
+}

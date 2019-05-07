@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "description": "The content of the note",
+                    "type": "string"
+                },
+                "associated_with_type": {
+                    "description": "Case insensitive type of item with which the note is associated.  Value must be one of: person, account",
+                    "type": "string"
+                },
+                "associated_with_id": {
+                    "description": "ID of the item with which the note is associated",
+                    "type": "integer"
+                },
+                "skip_crm_sync": {
+                    "description": "Boolean indicating if the CRM sync should be skipped.  No syncing will occur if true",
+                    "type": "boolean"
+                },
+                "call_id": {
+                    "description": "ID of the call with which the note is associated. The call cannot already have a note",
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "content"
+            ]
+        }
+    }
+}

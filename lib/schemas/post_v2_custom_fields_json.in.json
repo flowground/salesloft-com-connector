@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "The name of the custom field",
+                    "type": "string"
+                },
+                "field_type": {
+                    "description": "The field type of the custom field. Value must be one of: person, company, opportunity",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name"
+            ]
+        }
+    }
+}

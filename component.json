@@ -1,0 +1,1069 @@
+{
+    "title": "SalesLoft Platform",
+    "description": "SalesLoft helps transform sales teams into modern sales organizations  - converting more target accounts into customer accounts\n",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/salesloft.com/v2/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.salesloft.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "OAuth2": {
+                "label": "OAuth2",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "token_uri": "https://accounts.salesloft.com/oauth/token"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "get_v2_accounts_json": {
+            "main": "./lib/actions/get_v2_accounts_json.js",
+            "title": "List accounts",
+            "description": "Fetches multiple account records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_accounts_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_v2_accounts_json": {
+            "main": "./lib/actions/post_v2_accounts_json.js",
+            "title": "Create an account",
+            "description": "Creates an account.\n\n\"domain\" must be unique on the current team.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_v2_accounts_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_v2_accounts__id__json": {
+            "main": "./lib/actions/delete_v2_accounts__id__json.js",
+            "title": "Delete an account",
+            "description": "Deletes an account. This operation is not reversible without contacting support.\nThis operation can be called multiple times successfully.\n\nDeleting an account will remove all connected people from that account.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_v2_accounts__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_accounts__id__json": {
+            "main": "./lib/actions/get_v2_accounts__id__json.js",
+            "title": "Fetch an account",
+            "description": "Fetches an account, by ID only.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_accounts__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_v2_accounts__id__json": {
+            "main": "./lib/actions/put_v2_accounts__id__json.js",
+            "title": "Update an existing Account",
+            "description": "Updates an account.\n\n\"domain\" must be unique on the current team.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_v2_accounts__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_action_details_call_instructions_json": {
+            "main": "./lib/actions/get_v2_action_details_call_instructions_json.js",
+            "title": "List call instructions",
+            "description": "Fetches multiple call instruction records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_action_details_call_instructions_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_action_details_call_instructions__id__json": {
+            "main": "./lib/actions/get_v2_action_details_call_instructions__id__json.js",
+            "title": "Fetch a call instructions",
+            "description": "Fetches a call instruction, by ID only.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_action_details_call_instructions__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_actions_json": {
+            "main": "./lib/actions/get_v2_actions_json.js",
+            "title": "List actions",
+            "description": "Fetches multiple action records. The records can be filtered, paged, and sorted according to\nthe respective parameters. Only actions that are currently \"in_progess\" will be returned by\nthis endpoint.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_actions_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_actions__id__json": {
+            "main": "./lib/actions/get_v2_actions__id__json.js",
+            "title": "Fetch an action",
+            "description": "Fetches an action, by ID only.\nThis endpoint will only return actions that are in_progress or pending_activity.\nOnce an action is complete, the request for that action will return a 404 status code.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_actions__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_activities_calls_json": {
+            "main": "./lib/actions/get_v2_activities_calls_json.js",
+            "title": "List calls",
+            "description": "Fetches multiple call records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_activities_calls_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_activities_calls__id__json": {
+            "main": "./lib/actions/get_v2_activities_calls__id__json.js",
+            "title": "Fetch a call",
+            "description": "Fetches a call, by ID only.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_activities_calls__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_activities_emails_json": {
+            "main": "./lib/actions/get_v2_activities_emails_json.js",
+            "title": "List emails",
+            "description": "Fetches multiple email records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_activities_emails_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_activities_emails__id__json": {
+            "main": "./lib/actions/get_v2_activities_emails__id__json.js",
+            "title": "Fetch an email",
+            "description": "Fetches an email, by ID only.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_activities_emails__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_cadence_memberships_json": {
+            "main": "./lib/actions/get_v2_cadence_memberships_json.js",
+            "title": "List cadence memberships",
+            "description": "Fetches multiple cadence membership records. The records can be filtered, paged, and sorted according to\nthe respective parameters. A cadence membership is the association between a person and their current and\nhistorical time on a cadence. Cadence membership records are mutable and change over time. If a person is\nadded to a cadence and re-added to the same cadence in the future, there is a single membership record.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_cadence_memberships_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_v2_cadence_memberships_json": {
+            "main": "./lib/actions/post_v2_cadence_memberships_json.js",
+            "title": "Create a cadence membership",
+            "description": "Adds a person to a cadence. person_id and cadence_id are required, and must be visible to the authenticated user. user_id will\ndefault to the authenticated user, but can be set to any visible user on the authenticated team.\n\nA person cannot be added to a cadence on behalf of a teammate unless the cadence is a team cadence, or the cadence is owned by\nthe teammate.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_v2_cadence_memberships_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_v2_cadence_memberships__id__json": {
+            "main": "./lib/actions/delete_v2_cadence_memberships__id__json.js",
+            "title": "Delete a cadence membership",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_v2_cadence_memberships__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_cadence_memberships__id__json": {
+            "main": "./lib/actions/get_v2_cadence_memberships__id__json.js",
+            "title": "Fetch a cadence membership",
+            "description": "Fetches a cadence membership, by ID only.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_cadence_memberships__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_cadences_json": {
+            "main": "./lib/actions/get_v2_cadences_json.js",
+            "title": "List cadences",
+            "description": "Fetches multiple cadence records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_cadences_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_cadences__id__json": {
+            "main": "./lib/actions/get_v2_cadences__id__json.js",
+            "title": "Fetch a cadence",
+            "description": "Fetches a cadence, by ID only.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_cadences__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_call_data_records_json": {
+            "main": "./lib/actions/get_v2_call_data_records_json.js",
+            "title": "List call data records",
+            "description": "Fetches multiple call data records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n\nCall data records are records of all inbound and outbound calls through SalesLoft. A call data record may\nbe associated with a call, but does not have to be.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_call_data_records_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_call_data_records__id__json": {
+            "main": "./lib/actions/get_v2_call_data_records__id__json.js",
+            "title": "Fetch a call data record",
+            "description": "Fetches a call data record, by ID only.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_call_data_records__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_crm_activities_json": {
+            "main": "./lib/actions/get_v2_crm_activities_json.js",
+            "title": "List crm activities",
+            "description": "Fetches multiple crm activity records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_crm_activities_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_crm_activities__id__json": {
+            "main": "./lib/actions/get_v2_crm_activities__id__json.js",
+            "title": "Fetch a crm activity",
+            "description": "Fetches a crm activity, by ID only.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_crm_activities__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_custom_fields_json": {
+            "main": "./lib/actions/get_v2_custom_fields_json.js",
+            "title": "List custom fields",
+            "description": "Fetches multiple custom field records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_custom_fields_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_v2_custom_fields_json": {
+            "main": "./lib/actions/post_v2_custom_fields_json.js",
+            "title": "Create a custom field",
+            "description": "Creates a custom field.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_v2_custom_fields_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_v2_custom_fields__id__json": {
+            "main": "./lib/actions/delete_v2_custom_fields__id__json.js",
+            "title": "Delete a custom field",
+            "description": "Deletes a custom field.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_v2_custom_fields__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_custom_fields__id__json": {
+            "main": "./lib/actions/get_v2_custom_fields__id__json.js",
+            "title": "Fetch a custom field",
+            "description": "Fetches a custom field, by ID only.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_custom_fields__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_v2_custom_fields__id__json": {
+            "main": "./lib/actions/put_v2_custom_fields__id__json.js",
+            "title": "Update a custom field",
+            "description": "Update a custom field.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_v2_custom_fields__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_email_templates_json": {
+            "main": "./lib/actions/get_v2_email_templates_json.js",
+            "title": "List email templates",
+            "description": "Fetches multiple email template records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_email_templates_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_email_templates__id__json": {
+            "main": "./lib/actions/get_v2_email_templates__id__json.js",
+            "title": "Fetch an email template",
+            "description": "Fetches an email template, by ID only.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_email_templates__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_imports_json": {
+            "main": "./lib/actions/get_v2_imports_json.js",
+            "title": "List imports",
+            "description": "Fetches multiple imports.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_imports_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_v2_imports_json": {
+            "main": "./lib/actions/post_v2_imports_json.js",
+            "title": "Create an import",
+            "description": "Creates an import.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_v2_imports_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_v2_imports__id__json": {
+            "main": "./lib/actions/delete_v2_imports__id__json.js",
+            "title": "Delete an import",
+            "description": "Deletes an import, by ID only. The associated people can be deleted as part of the deletion process.\n\nAdmin users can access imports for the entire team, but non-admin users can only access their own imports.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_v2_imports__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_imports__id__json": {
+            "main": "./lib/actions/get_v2_imports__id__json.js",
+            "title": "Fetch an import",
+            "description": "Fetches an import, by ID only.\n\nAdmin users can access imports for the entire team, but non-admin users can only access their own imports.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_imports__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_v2_imports__id__json": {
+            "main": "./lib/actions/put_v2_imports__id__json.js",
+            "title": "Update an import",
+            "description": "Updates an import, by ID only.\n\nAdmin users can access imports for the entire team, but non-admin users can only access their own imports.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_v2_imports__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_me_json": {
+            "main": "./lib/actions/get_v2_me_json.js",
+            "title": "Fetch current user",
+            "description": "Authenticated user information. This endpoint does not accept any parameters as it is\nrepresents your authenticated user. The \"Users\" resource provides user information\nfor other users on the team.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_me_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_notes_json": {
+            "main": "./lib/actions/get_v2_notes_json.js",
+            "title": "List notes",
+            "description": "Fetches multiple note records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_notes_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_v2_notes_json": {
+            "main": "./lib/actions/post_v2_notes_json.js",
+            "title": "Create a note",
+            "description": "Creates a note.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_v2_notes_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_notes__id__json": {
+            "main": "./lib/actions/get_v2_notes__id__json.js",
+            "title": "Fetch a note",
+            "description": "Fetches a note, by ID only.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_notes__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_v2_notes__id__json": {
+            "main": "./lib/actions/put_v2_notes__id__json.js",
+            "title": "Update a note",
+            "description": "Updates a note. Any changes to the note or associated records will not reflect in Salesforce.com.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_v2_notes__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_people_json": {
+            "main": "./lib/actions/get_v2_people_json.js",
+            "title": "List people",
+            "description": "Fetches multiple person records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_people_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_v2_people_json": {
+            "main": "./lib/actions/post_v2_people_json.js",
+            "title": "Create a person",
+            "description": "Creates a person. Either email_address or phone/last_name must be provided as a unique lookup\non the team.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_v2_people_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_v2_people__id__json": {
+            "main": "./lib/actions/delete_v2_people__id__json.js",
+            "title": "Delete a person",
+            "description": "Deletes a person. This operation is not reversible without contacting support.\nThis operation can be called multiple times successfully.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_v2_people__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_people__id__json": {
+            "main": "./lib/actions/get_v2_people__id__json.js",
+            "title": "Fetch a person",
+            "description": "Fetches a person, by ID only.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_people__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_v2_people__id__json": {
+            "main": "./lib/actions/put_v2_people__id__json.js",
+            "title": "Update a person",
+            "description": "Updates a person.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_v2_people__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_person_stages_json": {
+            "main": "./lib/actions/get_v2_person_stages_json.js",
+            "title": "List person stages",
+            "description": "Fetches multiple person stage records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_person_stages_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_v2_person_stages_json": {
+            "main": "./lib/actions/post_v2_person_stages_json.js",
+            "title": "Create a person stage",
+            "description": "Creates a person stage.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_v2_person_stages_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_v2_person_stages__id__json": {
+            "main": "./lib/actions/delete_v2_person_stages__id__json.js",
+            "title": "Delete an person stage",
+            "description": "Deletes a person stage. This operation is not reversible without contacting support.\nThis operation can be called multiple times successfully.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_v2_person_stages__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_person_stages__id__json": {
+            "main": "./lib/actions/get_v2_person_stages__id__json.js",
+            "title": "Fetch a person stage",
+            "description": "Fetches a person stage, by ID only.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_person_stages__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_v2_person_stages__id__json": {
+            "main": "./lib/actions/put_v2_person_stages__id__json.js",
+            "title": "Update a person stage",
+            "description": "Updates a person stage.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_v2_person_stages__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_phone_numbers_caller_ids_json": {
+            "main": "./lib/actions/get_v2_phone_numbers_caller_ids_json.js",
+            "title": "List caller ids",
+            "description": "Each entry is a possible caller ID match for the number. Multiple\nentries may be returned if the phone number is present on more than one\nperson in the system.  Phone number should be in E.164 format.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_phone_numbers_caller_ids_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_phone_numbers_recording_settings__id__json": {
+            "main": "./lib/actions/get_v2_phone_numbers_recording_settings__id__json.js",
+            "title": "Fetch recording setting",
+            "description": "Fetches the recording status for a given phone number, based on Do Not Record and Recording Governance for your team.\nPhone number should be in E.164 format.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_phone_numbers_recording_settings__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_steps_json": {
+            "main": "./lib/actions/get_v2_steps_json.js",
+            "title": "List steps",
+            "description": "Fetches multiple step records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_steps_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_steps__id__json": {
+            "main": "./lib/actions/get_v2_steps__id__json.js",
+            "title": "Fetch a step",
+            "description": "Fetches a step, by ID only.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_steps__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_successes_json": {
+            "main": "./lib/actions/get_v2_successes_json.js",
+            "title": "List successes",
+            "description": "Fetches multiple success records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_successes_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_team_json": {
+            "main": "./lib/actions/get_v2_team_json.js",
+            "title": "Fetch current team",
+            "description": "Fetches the team of the authenticated user.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_team_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_team_templates_json": {
+            "main": "./lib/actions/get_v2_team_templates_json.js",
+            "title": "List team templates",
+            "description": "Fetches multiple team template records. The records can be filtered, paged, and sorted according to\nthe respective parameters.\n\nTeam templates are templates that are available team-wide. Admins may use\nteam templates to create original content for the entire team, monitor version control to ensure templates are always up to date,\nand track template performance across the entire organization. All metrics on a team template reflect usage across the team; individual metrics can be found with the email_templates API endpoint.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_team_templates_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_team_templates__id__json": {
+            "main": "./lib/actions/get_v2_team_templates__id__json.js",
+            "title": "Fetch a team template",
+            "description": "Fetches a team template, by ID only.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_team_templates__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_users_json": {
+            "main": "./lib/actions/get_v2_users_json.js",
+            "title": "List users",
+            "description": "Non Admin: Lists only your user, or all on team depending on group visibility policy\nTeam Admin: Lists users associated with your team\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_users_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v2_users__id__json": {
+            "main": "./lib/actions/get_v2_users__id__json.js",
+            "title": "Fetch a user",
+            "description": "Fetches a user, by ID only.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v2_users__id__json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

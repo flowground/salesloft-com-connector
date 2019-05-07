@@ -1,0 +1,115 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "Account Full Name",
+                    "type": "string"
+                },
+                "domain": {
+                    "description": "Website domain, not a fully qualified URI",
+                    "type": "string"
+                },
+                "conversational_name": {
+                    "description": "Conversational name of the Account",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Description",
+                    "type": "string"
+                },
+                "phone": {
+                    "description": "Phone number without formatting",
+                    "type": "string"
+                },
+                "website": {
+                    "description": "Website",
+                    "type": "string"
+                },
+                "linkedin_url": {
+                    "description": "Full LinkedIn url",
+                    "type": "string"
+                },
+                "twitter_handle": {
+                    "description": "Twitter handle, with @",
+                    "type": "string"
+                },
+                "street": {
+                    "description": "Street name and number",
+                    "type": "string"
+                },
+                "city": {
+                    "description": "City",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "State",
+                    "type": "string"
+                },
+                "postal_code": {
+                    "description": "Postal code",
+                    "type": "string"
+                },
+                "country": {
+                    "description": "Country",
+                    "type": "string"
+                },
+                "locale": {
+                    "description": "Time locale",
+                    "type": "string"
+                },
+                "industry": {
+                    "description": "Industry",
+                    "type": "string"
+                },
+                "company_type": {
+                    "description": "Type of the Account's company",
+                    "type": "string"
+                },
+                "founded": {
+                    "description": "Date or year of founding",
+                    "type": "string"
+                },
+                "revenue_range": {
+                    "description": "Estimated revenue range",
+                    "type": "string"
+                },
+                "size": {
+                    "description": "Estimated number of people in employment",
+                    "type": "string"
+                },
+                "do_not_contact": {
+                    "description": "Whether this company can not be contacted. Values are either true or false. Setting this to true will remove all associated people from all active communications",
+                    "type": "boolean"
+                },
+                "custom_fields": {
+                    "description": "Custom fields are defined by the user's team. Only fields with values are presented in the API.",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "description": "All tags applied to this Account",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "owner_id": {
+                    "description": "ID of the User that owns this Account",
+                    "type": "integer"
+                },
+                "company_stage_id": {
+                    "description": "ID of the CompanyStage assigned to this Account",
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "name"
+            ]
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "user_id": {
+                    "description": "ID of the User that owns this Import",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "Name, recommended to be easily identifiable to a user",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
